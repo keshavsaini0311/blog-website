@@ -20,9 +20,10 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
-
-mongoose.connect("mongodb+srv://keshavsaini:KSVsai@backend.b6ixj7e.mongodb.net/node?retryWrites=true&w=majority&appName=backend")
+require('dotenv').config();
+const username=process.env.mongoDBusername;
+const password=process.env.mongoDBpassword;
+mongoose.connect("mongodb+srv://"+username+":"+password+"@backend.b6ixj7e.mongodb.net/node?retryWrites=true&w=majority&appName=backend")
 .then(()=>{
     console.log("connected");
 })
