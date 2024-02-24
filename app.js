@@ -52,8 +52,19 @@ app.get("/contact",function(req,res){
 })
 
 app.get("/compose",function(req,res){
-  res.render("compose");
+  res.render("sign-in",{incorrect:""});
 })
+
+app.post("/sign-in",async(req,res)=>{
+  let email=req.body.email;
+  let password=req.body.password;
+  if(email==process.env.email&&password==process.env.password){
+    res.render("compose");
+  }else{
+    res.render("sign-in",{incorrect:"Email and Password do not match"});
+  }
+})
+
 
 app.post("/compose",async(req,res)=>{
 

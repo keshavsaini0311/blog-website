@@ -3,9 +3,9 @@
     
     <form action="/compose" method="post">
         Heading <br>
-        <input type="text" name="heading" autocomplete="off" class="blog-input">
+        <input type="text" name="heading" autocomplete="off" class="blog-input" required>
        <br> Post <br>
-        <textarea name="post" autocomplete="off" class="blog-input"></textarea>
+        <textarea name="post" autocomplete="off" class="blog-input" required></textarea>
         <br><button type="submit" class="btn btn-primary">Publish</button>
     </form>
 <%- include("partials/footer") %>
